@@ -1,0 +1,17 @@
+/Box/images/
+/Box/SPBR_DATA/
+/Box/videos/
+/Box/Makefile
+/Box/Makefile.kvs
+/Box/*.o
+/Box/*.csv
+/Box/spbr
+/Box/Box
+
+/Plane/SPBR_DATA/
+/Plane/Makefile
+/Plane/Makefile.kvs
+/Plane/*.o
+/Plane/*.csv
+/Plane/spbr
+/Plane/Plane
