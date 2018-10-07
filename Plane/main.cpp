@@ -19,6 +19,7 @@
 
 const char OUTPUT_SPBR[]        = "SPBR_DATA/plane.spbr";
 const char OUTPUT_NOISED_SPBR[] = "SPBR_DATA/plane_noised.spbr";
+const char OUTPUT_SPBR_HEADER[] = "SPBR_DATA/h_plane.spbr";
 
 int main(int argc, char **argv) {
     if ( argc != 3 ) {
@@ -129,27 +130,32 @@ int main(int argc, char **argv) {
     std::cout << "\n\n----- Stochastically add Gaussian noise -----" << std::endl;
     std::cout << "> Add Gaussian noise with " << ratio_for_add_noise*100 << " percent.\n" << std::endl;
     for (int i = 0; i < plane_points.size(); i++) {
+        x = plane_points[i].x();
+        y = plane_points[i].y();
+        z = plane_points[i].z();       
 
+        bool isNoise = false;
         if ( uniRand() < ratio_for_add_noise ) {
             // N(μ, σ^2)
             // N(0, 1) → μ=0, σ^2=1
 
             // add Gaussian noise
-            x = plane_points[i].x() + gaussRand.rand(0, sigma2);
-            y = plane_points[i].y() + gaussRand.rand(0, sigma2);
-            z = plane_points[i].z() + gaussRand.rand(0, sigma2);
-            
-            // write to .spbr file
-            point.set(x, y, z);
-            fout_noised << point << std::endl;
+            x += gaussRand.rand(0, sigma2);
+            y += gaussRand.rand(0, sigma2);
+            z += gaussRand.rand(0, sigma2);
 
             // write to .csv file
-            fout_gauss_distribution << i << "," << gaussRand.rand(0, sigma2) << std::endl;
+            //fout_gauss_distribution << i << "," << gaussRand.rand(0, sigma2) << std::endl;
 
             // count number of noised points
             noise_counter++;
+            isNoise = true;
         }
 
+        // write to .spbr file
+        point.set(x, y, z);
+        if (isNoise) fout_noised << point << " 0 0 0 255 0 0" << std::endl;
+        else         fout_noised << point << " 0 0 0 255 255 255" << std::endl;
     }
     std::cout << "\nNumber of noised points"    << std::endl;
     std::cout << "> " << noise_counter << "\n"  << std::endl;  
@@ -169,8 +175,9 @@ int main(int argc, char **argv) {
     // ----------------------
     // ----- Exec. SPBR -----
     // ----------------------
+    std::string of_name_header( OUTPUT_SPBR_HEADER ); 
     std::string EXEC("./spbr ");
-    EXEC += of_name_raw;
+    EXEC += of_name_header;
     EXEC += " ";
     EXEC += of_name_noised;
     system( EXEC.c_str() );
