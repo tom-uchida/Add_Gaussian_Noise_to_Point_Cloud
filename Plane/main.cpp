@@ -92,7 +92,7 @@ int main(int argc, char **argv) {
     
     // standard output
     float ratio_for_sigma   = atof(argv[1]);
-    float diagonal_length   = sqrtf(1.0*1.0 + 1.0*1.0 + 1.0*1.0);
+    float diagonal_length   = sqrtf(1.0*1.0 + 1.0*1.0);
     float sigma2            = diagonal_length*ratio_for_sigma;
     std::cout << "Diagonal length"                  << std::endl;
     std::cout << "> " << diagonal_length << "\n"    << std::endl;
