@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
     fout_raw << "#/CameraPosition 0 0 8"    << std::endl;
     fout_raw << "#/BGColorRGBByte 0 0 0"    << std::endl;
     fout_raw << "#/ColorRGB 255 255 255"    << std::endl;
-    fout_raw << "#/ImageResolution 512"     << std::endl;
+    fout_raw << "#/ImageResolution 1024"     << std::endl;
     fout_raw << "#/Shading 0"               << std::endl;
     fout_raw << "#/LOD 0"                   << std::endl;
     fout_raw << "#/EndHeader"               << std::endl;
@@ -121,7 +121,7 @@ int main(int argc, char **argv) {
     fout_noised << "#/CameraPosition 0 0 8" << std::endl;
     fout_noised << "#/BGColorRGBByte 0 0 0" << std::endl;
     fout_noised << "#/ColorRGB 255 0 0"     << std::endl;
-    fout_noised << "#/ImageResolution 512"  << std::endl;
+    fout_noised << "#/ImageResolution 1024"  << std::endl;
     fout_noised << "#/Shading 0"            << std::endl;
     fout_noised << "#/LOD 0"                << std::endl;
     fout_noised << "#/EndHeader"            << std::endl;
@@ -165,10 +165,11 @@ int main(int argc, char **argv) {
     // --------------------------------
     // ----- Gaussian Integration -----
     // --------------------------------
-    std::cout << "\nGaussian Integration Value" << std::endl;
-    std::cout << "> " << sqrtf(2*M_PI) * sqrtf(sigma2) << "\n" << std::endl;
-    std::cout << "\nGaussian Integration Value" << std::endl;
-    std::cout << "> " << 1/sqrtf(2*M_PI*sigma2) * sqrtf(2*M_PI) * sqrtf(sigma2) << "\n" << std::endl;
+    // std::cout << "\nGaussian Integration Value" << std::endl;
+    // std::cout << "> " << sqrtf(2*M_PI) * sqrtf(sigma2) << "\n" << std::endl;
+
+    // std::cout << "\nGaussian Integration Value" << std::endl;
+    // std::cout << "> " << 1/sqrtf(2*M_PI*sigma2) * sqrtf(2*M_PI) * sqrtf(sigma2) << "\n" << std::endl;
 
 
 
