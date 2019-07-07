@@ -17,7 +17,7 @@
 #define  TRUTH_MAX    0.99
 #define  TRUTH_MIN    0.01
 
-const char OUTPUT_NOISED_SPBR[] = "SPBR_DATA/set10/plane_noised.spbr";
+const char OUTPUT_NOISED_SPBR[] = "SPBR_DATA/plane.spbr";
 
 int main(int argc, char **argv) {
     if ( argc != 3 ) {
