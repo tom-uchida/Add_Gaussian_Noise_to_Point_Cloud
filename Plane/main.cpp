@@ -13,11 +13,11 @@
 #include <vector>
 #include <math.h>
 
-#define  N_TOTAL      1e07
+#define  N_TOTAL      4e07
 #define  TRUTH_MAX    0.99
 #define  TRUTH_MIN    0.01
 
-const char OUTPUT_NOISED_SPBR[] = "SPBR_DATA/box.spbr";
+const char OUTPUT_NOISED_SPBR[] = "SPBR_DATA/plane_noise.spbr";
 
 int main(int argc, char **argv) {
     if ( argc != 3 ) {
